@@ -1,4 +1,3 @@
-import React from "react";
 import "./MyInfo.css";
 export default function MyInfo() {
   const products = [
