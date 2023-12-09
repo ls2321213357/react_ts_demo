@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import MyInfo from "../MyInfo/MyInfo.jsx";
 import NoState from "../MyInfo/noState.jsx";
 import Pubsub from "../Pubsub/Pubsub.jsx";
+import TestUseEffect from "../Pubsub/TestUseEffect.jsx";
+import ThemesShow from "../Pubsub/TestUseContext.jsx";
 function MyButton(props) {
   const styleInfo = {
     width: 120,
@@ -23,7 +25,7 @@ function MyButton(props) {
   );
 }
 export default function Container() {
-  const isShowInfo = true;
+  const isShowInfo = false;
   const [sum, setSum] = useState(0);
   const [title, setTitle] = useState("学习react");
   const sumClickHandler = () => {
@@ -46,6 +48,8 @@ export default function Container() {
         <MyInfo />
       )}
       <Pubsub id={1}></Pubsub>
+      <TestUseEffect></TestUseEffect>
+      <ThemesShow></ThemesShow>
     </>
   );
 }

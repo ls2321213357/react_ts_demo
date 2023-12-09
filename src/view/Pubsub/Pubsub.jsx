@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { useUserStatus } from "@/hooks/useUserStatus";
 class ChatApi {
   constructor() {
     this.listener = {};
@@ -38,25 +38,24 @@ setTimeout(() => {
 }, 1000);
 
 export default function FriendStatus(props) {
-  const [isOnline, setIsOnline] = useState(null);
-  function handleStatusChange(status) {
-    // console.log("数据更新");
-    setIsOnline(status);
-  }
-  //useEffect必须是dom真实挂在到页面上或者dom更新完才执行
-  //例如下方  就是先更新 然后卸载 然后执行useEffect
-  useEffect(() => {
-    // console.log("执行useEffect");
-    chat.subscribeToFriendStatus(props.id, handleStatusChange);
-    return () => {
-      //   console.log("执行卸载");
-      chat.unsubscribeToFriendStatus(props.id, handleStatusChange);
-    };
-  });
-  //可以写多个useEffect  不能在判断条件以及for循环中使用这些hook
-  useEffect(() => {
-    // console.log("执行第二个");
-  });
+  //-------------传统写法-------------------------
+  // const [isOnline, setIsOnline] = useState(null);
+  // function handleStatusChange(status) {
+  //   // console.log("数据更新");
+  //   setIsOnline(status);
+  // }
+  // //useEffect必须是dom真实挂在到页面上或者dom更新完才执行
+  // //例如下方  就是先更新 然后卸载 然后执行useEffect
+  // useEffect(() => {
+  //   // console.log("执行useEffect");
+  //   chat.subscribeToFriendStatus(props.id, handleStatusChange);
+  //   return () => {
+  //     //   console.log("执行卸载");
+  //     chat.unsubscribeToFriendStatus(props.id, handleStatusChange);
+  //   };
+  // });
+  //自定义hooks-------------------------
+  const isOnline = useUserStatus(props.id, chat);
   if (!isOnline) {
     return "Loading......";
   }

@@ -1,4 +1,5 @@
 import "./MyInfo.css";
+import React from "react";
 export default function MyInfo() {
   const products = [
     { title: "Cabbage", isFruit: false, id: 1 },
@@ -7,7 +8,7 @@ export default function MyInfo() {
   ];
   const listItem = products.map((item) => (
     <div key={item.id}>
-      <input type="checkbox" checked={item.isFruit} />
+      <input type="checkbox" defaultChecked={item.isFruit} />
       <span>{item.title}</span>
     </div>
   ));
@@ -18,6 +19,7 @@ export default function MyInfo() {
     <>
       <h4 onClick={clickHandler}>这是我的另一个身份信息</h4>
       {listItem}
+      <EventTest></EventTest>
     </>
   );
 }
