@@ -1,5 +1,6 @@
 import "./MyInfo.css";
 import React from "react";
+import ClassTest from "@/view/ClassTest/ClassTest.jsx";
 export default function MyInfo() {
   const products = [
     { title: "Cabbage", isFruit: false, id: 1 },
@@ -17,9 +18,11 @@ export default function MyInfo() {
   };
   return (
     <>
-      <h4 onClick={clickHandler}>这是我的另一个身份信息</h4>
-      {listItem}
-      <EventTest></EventTest>
+      <div style={{ display: "flex" }}>
+        <h4 onClick={clickHandler}>这是我的另一个身份信息</h4>
+        {listItem}
+        <ClassTest></ClassTest>
+      </div>
     </>
   );
 }
