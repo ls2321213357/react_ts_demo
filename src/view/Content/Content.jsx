@@ -4,6 +4,7 @@ import NoState from "../MyInfo/noState.jsx";
 import Pubsub from "../Pubsub/Pubsub.jsx";
 import TestUseEffect from "../Pubsub/TestUseEffect.jsx";
 import ThemesShow from "../Pubsub/TestUseContext.jsx";
+import CarDemo from "../CarDemo/CarDemo.jsx";
 function MyButton(props) {
   const styleInfo = {
     width: 120,
@@ -50,6 +51,7 @@ export default function Container() {
       <Pubsub id={1}></Pubsub>
       <TestUseEffect></TestUseEffect>
       <ThemesShow></ThemesShow>
+      <CarDemo></CarDemo>
     </>
   );
 }

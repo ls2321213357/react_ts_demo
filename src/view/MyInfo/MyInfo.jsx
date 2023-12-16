@@ -13,13 +13,9 @@ export default function MyInfo() {
       <span>{item.title}</span>
     </div>
   ));
-  const clickHandler = () => {
-    alert("展示信息");
-  };
   return (
     <>
       <div style={{ display: "flex" }}>
-        <h4 onClick={clickHandler}>这是我的另一个身份信息</h4>
         {listItem}
         <ClassTest></ClassTest>
       </div>

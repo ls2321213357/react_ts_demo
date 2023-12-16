@@ -1,5 +1,6 @@
 import React from "react";
 import ManyDom from "./ManyDom";
+import SlotTest from "./SlotTest";
 class EventTest extends React.Component {
   constructor(props) {
     super(props);
@@ -112,7 +113,10 @@ export default class ClassTest extends React.Component {
         {/* &&来控制显隐 在jsx里0不会转成false 判断的话必须使用boolean值 */}
         {count > 1 && <EventTest count={count}></EventTest>}
         {btn}
-        <ManyDom></ManyDom>
+        {/* 在这里想实现类似vue的插槽功能  也可以通过props的形式传递组件 */}
+        <SlotTest propChild={<ManyDom></ManyDom>}>
+          <span>child</span>
+        </SlotTest>
       </>
     );
   }

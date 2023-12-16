@@ -1,5 +1,5 @@
 import Container from "./view/Content/Content.jsx";
-// import OldLifeCycle from "./view/ClassTest/OldLifeCycle.jsx";
+import OldLifeCycle from "./view/ClassTest/OldLifeCycle.jsx";
 import LifeCycle from "./view/ClassTest/LifeCycle.jsx";
 import { useState } from "react";
 function IsShowLifeCycle(props) {
@@ -16,8 +16,8 @@ function App() {
     <>
       <Container></Container>
       {/* <OldLifeCycle></OldLifeCycle> */}
-      <button onClick={() => useIsShow(false)}>干掉你</button>
-      <IsShowLifeCycle isShow={isShow}></IsShowLifeCycle>
+      {/* <button onClick={() => useIsShow(false)}>干掉你</button> */}
+      {/* <IsShowLifeCycle isShow={isShow}></IsShowLifeCycle> */}
     </>
   );
 }
