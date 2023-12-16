@@ -2,23 +2,40 @@ import React from "react";
 class ChildLifeCycle extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      test: "我是state",
+    };
   }
   //二、更新阶段  componentWillReceiveProps->shouldComponentUpdate(为true)->componentWillUpdate
   //  ->render(子)->componentDidUpdate
+  //新版本废弃了
   componentWillReceiveProps() {
     console.log("将要接受参数传递阶段-componentWillReceiveProps");
   }
-  componentWillUpdate() {
-    console.log("数据即将更新-componentWillUpdate");
+  //新版本废弃了
+  componentWillUpdate(new_props, state) {
+    //可以接受两个参数 props以及自己的state  在这里能拿到旧的props 因为还没更新
+    console.log(
+      "数据即将更新-componentWillUpdate",
+      new_props,
+      state,
+      this.props,
+    );
   }
   componentDidUpdate() {
-    console.log("数据已经更新完毕-componentDidUpdate");
+    //这里的this.props话就是就是新的props了
+    console.log("数据已经更新完毕-componentDidUpdate", this.props);
   }
-  shouldComponentUpdate() {
-    console.log("控制是否进行更新");
-    //必须返回true/false  false的话就不更新了 不走componentWillUpdate和componentDidUpdate
-    return true;
+  shouldComponentUpdate(new_props, state) {
+    //可以接收参数(可选)  此时this.props还是旧的
+    console.log("控制是否进行更新", new_props, state, this.props);
+    /* 
+    必须返回true/false  false的话就不更新了 不走componentWillUpdate和componentDidUpdate 
+    进行性能优化用的比较多
+    */
+    return new_props.num === 1;
   }
+  //render才会进行新旧props的对比 以及需要进行更新的dom  在render这一步进行对比
   render() {
     const { num } = this.props;
     console.log("子render执行");
@@ -42,8 +59,10 @@ export default class OldLifeCycle extends React.Component {
   componentWillMount() {
     console.log("componentWillMount执行");
   }
+  comp
   componentDidMount() {
     console.log("componentDidMount执行");
+    //setState是异步的,调用的话会执行render 但是不会每次调用都去执行render
     this.setState({
       count: 1,
     });

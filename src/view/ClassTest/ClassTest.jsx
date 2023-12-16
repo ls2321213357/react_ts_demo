@@ -1,6 +1,5 @@
 import React from "react";
-
-import LifeCycle from "./LifeCycle.jsx";
+import ManyDom from "./ManyDom";
 class EventTest extends React.Component {
   constructor(props) {
     super(props);
@@ -61,12 +60,31 @@ class EventTest extends React.Component {
     );
   }
 }
+//练习通过state来切换标签 组件返回null的话就什么都不渲染
+function Login(props) {
+  return (
+    <button style={{ height: "30px" }} onClick={props.changeState}>
+      登录
+    </button>
+  );
+}
+function Logout(props) {
+  if (!props.isShow) {
+    return null;
+  }
+  return (
+    <button style={{ height: "30px" }} onClick={props.changeState}>
+      登出
+    </button>
+  );
+}
 export default class ClassTest extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       count: 1,
       flag: null,
+      isShowLogin: true,
     };
   }
   componentDidMount() {
@@ -76,12 +94,25 @@ export default class ClassTest extends React.Component {
       });
     }, 2000);
   }
+  changeState = () => {
+    this.setState({
+      isShowLogin: !this.state.isShowLogin,
+    });
+  };
   render() {
-    const { count } = this.state;
+    const { count, isShowLogin } = this.state;
+    let btn = null;
+    btn = isShowLogin ? (
+      <Login changeState={this.changeState} />
+    ) : (
+      <Logout changeState={this.changeState} isShow={false} />
+    );
     return (
       <>
-        <EventTest count={count}></EventTest>
-        <LifeCycle></LifeCycle>
+        {/* &&来控制显隐 在jsx里0不会转成false 判断的话必须使用boolean值 */}
+        {count > 1 && <EventTest count={count}></EventTest>}
+        {btn}
+        <ManyDom></ManyDom>
       </>
     );
   }
