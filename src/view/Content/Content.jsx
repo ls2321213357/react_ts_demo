@@ -51,7 +51,9 @@ export default function Container() {
       <Pubsub id={1}></Pubsub>
       <TestUseEffect></TestUseEffect>
       <ThemesShow></ThemesShow>
-      <CarDemo></CarDemo>
+      <div style={{ width: "40%", marginTop: "20px" }}>
+        <CarDemo></CarDemo>
+      </div>
     </>
   );
 }
