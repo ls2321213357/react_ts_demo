@@ -59,7 +59,6 @@ export default class OldLifeCycle extends React.Component {
   componentWillMount() {
     console.log("componentWillMount执行");
   }
-  comp
   componentDidMount() {
     console.log("componentDidMount执行");
     //setState是异步的,调用的话会执行render 但是不会每次调用都去执行render

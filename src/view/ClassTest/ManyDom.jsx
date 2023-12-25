@@ -65,20 +65,10 @@ class NameForm extends React.Component {
 export default class ManyDom extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      productList: [1, 2, 3, 4],
-    };
   }
   render() {
-    const { productList } = this.state;
     return (
       <>
-        <ul style={{ listStyle: "none" }}>
-          {productList.map((item) => {
-            //在哪里遍历 key就加载哪里
-            return <li key={item.toString()}>{item}</li>;
-          })}
-        </ul>
         <NameForm></NameForm>
       </>
     );

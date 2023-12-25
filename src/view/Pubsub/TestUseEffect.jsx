@@ -14,9 +14,9 @@ export default function TestUseEffect() {
   useEffect执行的话 不能放在if以及for循环中进行使用  保证其是在函数的最顶层去运行
   想判断的话可以在其内部进行条件判断
   */
-  useEffect(() => {
-    console.log("执行");
-  }, [name]);
+  // useEffect(() => {
+  //   console.log("执行");
+  // }, [name]);
   return (
     <>
       <div>{sum + "/" + name}</div>

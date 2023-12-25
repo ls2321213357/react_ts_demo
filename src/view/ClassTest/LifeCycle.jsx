@@ -37,6 +37,7 @@ export default class LifeCycle extends React.Component {
     //前两个参数是之前的props 以及 state  第三个是 getSnapshotBeforeUpdate 传递的参数
     console.log("componentDidUpdate", preProps, preSate, msg);
   }
+  //组件卸载
   componentWillUnmount() {
     console.log("组件将要被卸载");
   }

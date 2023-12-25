@@ -104,7 +104,7 @@ export default class ClassTest extends React.Component {
     const { count, isShowLogin } = this.state;
     let btn = null;
     btn = isShowLogin ? (
-      <Login changeState={this.changeState} />
+      <Login changeState={this.changeState} /> 
     ) : (
       <Logout changeState={this.changeState} isShow={false} />
     );
