@@ -1,4 +1,5 @@
 import React from "react";
+import ExpendErrorComponent from "./ExpendErrorComponent/expendErrorComponent";
 const ThemeColor = React.createContext(0);
 const ThemeRanking = React.createContext("first");
 export default class TestContent extends React.Component {
@@ -18,7 +19,7 @@ export default class TestContent extends React.Component {
     // console.log("TestContent");
     return (
       <>
-        {/* 当没有Provider包裹时 就会使用默认值dark*/}
+        {/* 当没有Provider包裹时 就会使用默认值*/}
         {/* <ThemeButton></ThemeButton> */}
 
         {/* 这里Provider是固定写法  可以传递值value 当写了Provider进行包裹的话 必须写value才行 
@@ -80,6 +81,8 @@ class ThemeButton extends React.Component {
       <div style={{ display: "flex", flexDirection: "column" }}>
         <ThemeButtonChildren></ThemeButtonChildren>
         <ThemeConsumerTest></ThemeConsumerTest>
+        {/* 错误捕获组件部分 */}
+        {/* <ExpendErrorComponent></ExpendErrorComponent> */}
       </div>
     );
   }

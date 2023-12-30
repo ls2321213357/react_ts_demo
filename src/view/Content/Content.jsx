@@ -6,6 +6,7 @@ import TestUseEffect from "../Pubsub/TestUseEffect.jsx";
 import ThemesShow from "../Pubsub/TestUseContext.jsx";
 import CarDemo from "../CarDemo/CarDemo.jsx";
 import TestContext from "@/view/TestContext/TestContext";
+import TestRef from "../TestRef/TestRef.jsx";
 function MyButton(props) {
   const styleInfo = {
     width: 120,
@@ -57,6 +58,7 @@ export default function Container() {
           <CarDemo></CarDemo>
         </div>
         <TestContext></TestContext>
+        <TestRef></TestRef>
       </div>
     </>
   );
