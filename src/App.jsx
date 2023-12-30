@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Container></Container>
-      <OldLifeCycle></OldLifeCycle>
+      {/* <OldLifeCycle></OldLifeCycle> */}
       {/* <button onClick={() => useIsShow(false)}>干掉你</button> */}
       {/* <IsShowLifeCycle isShow={isShow}></IsShowLifeCycle> */}
     </>

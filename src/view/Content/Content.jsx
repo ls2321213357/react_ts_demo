@@ -5,6 +5,7 @@ import Pubsub from "../Pubsub/Pubsub.jsx";
 import TestUseEffect from "../Pubsub/TestUseEffect.jsx";
 import ThemesShow from "../Pubsub/TestUseContext.jsx";
 import CarDemo from "../CarDemo/CarDemo.jsx";
+import TestContext from "@/view/TestContext/TestContext";
 function MyButton(props) {
   const styleInfo = {
     width: 120,
@@ -51,8 +52,11 @@ export default function Container() {
       <Pubsub id={1}></Pubsub>
       <TestUseEffect></TestUseEffect>
       <ThemesShow></ThemesShow>
-      <div style={{ width: "40%", marginTop: "20px" }}>
-        <CarDemo></CarDemo>
+      <div style={{ display: "flex" }}>
+        <div style={{ width: "20%", marginTop: "20px" }}>
+          <CarDemo></CarDemo>
+        </div>
+        <TestContext></TestContext>
       </div>
     </>
   );
