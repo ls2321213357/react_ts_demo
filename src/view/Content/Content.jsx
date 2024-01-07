@@ -7,6 +7,7 @@ import ThemesShow from "../Pubsub/TestUseContext.jsx";
 import CarDemo from "../CarDemo/CarDemo.jsx";
 import TestContext from "@/view/TestContext/TestContext";
 import TestRef from "../TestRef/TestRef.jsx";
+import HocTest from "../HocTest/HocTest.jsx";
 function MyButton(props) {
   const styleInfo = {
     width: 120,
@@ -53,12 +54,17 @@ export default function Container() {
       <Pubsub id={1}></Pubsub>
       <TestUseEffect></TestUseEffect>
       <ThemesShow></ThemesShow>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
         <div style={{ width: "20%", marginTop: "20px" }}>
           <CarDemo></CarDemo>
         </div>
-        <TestContext></TestContext>
-        <TestRef></TestRef>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <TestContext></TestContext>
+          <TestRef></TestRef>
+        </div>
+        <div>
+          <HocTest></HocTest>
+        </div>
       </div>
     </>
   );
