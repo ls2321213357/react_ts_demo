@@ -1,5 +1,5 @@
 import React from "react";
-import ExpendErrorComponent from "./ExpendErrorComponent/expendErrorComponent";
+import ExpendErrorComponent from "./ExpendErrorComponent/ExpendErrorComponent";
 const ThemeColor = React.createContext(0);
 const ThemeRanking = React.createContext("first");
 export default class TestContent extends React.Component {

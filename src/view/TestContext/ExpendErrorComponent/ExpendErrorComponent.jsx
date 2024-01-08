@@ -48,7 +48,7 @@ class ShowErrorHandler extends React.Component {
   //   throw "点击产生的错误";
   // };
   render() {
-    // throw "组件发生了错误"; 事件的话无法被捕捉 点击了没有捕捉到
+    throw "组件发生了错误"; //事件的话无法被捕捉 点击了没有捕捉到
     // return <span onClick={this.errorHandler}>111</span>;
     // 当前组件没错误 其内部深层组件报错时 仍然可以捕捉的到 能捕捉到所有子组件
     // return (

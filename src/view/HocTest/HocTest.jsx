@@ -36,18 +36,23 @@ export default class HocTest extends Component {
     在hoc里需要进行ref的转发
     */
     this.myRef = createRef();
-    this.rootDom = document.querySelector("#root");
+    this.rootDom = document.querySelector("#testRoot");
   }
+  testPortalBubbling = () => {
+    //这个Portal组件明明没有渲染到root上  但是仍然点击的时候 能够触发其父元素的点击事件
+    // 说明其冒泡规则仍然是遵循react元素层级的
+    alert("这个Portal触发冒泡了");
+  };
   componentDidMount() {
     console.log(this.myRef);
   }
   render() {
     return (
-      <>
+      <div onClick={this.testPortalBubbling}>
         <NewTestComponent ref={this.myRef}></NewTestComponent>
         {/* 第一个参数是需要传递的dom或者组件 第二个是需要传送到的位置 */}
         {createPortal(<TestPortal></TestPortal>, this.rootDom)}
-      </>
+      </div>
     );
   }
 }
